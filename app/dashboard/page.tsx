@@ -9,11 +9,23 @@ import {
 } from "@/app/lib/data";
 
 export default async function Page() {
-  const [revenue, latestInvoices, cardData] = await Promise.all([
+  const data = await Promise.allSettled([
     fetchRevenue(),
     fetchLatestInvoices(),
     fetchCardData(),
   ]);
+
+  const revenue = data[0].status === "fulfilled" ? data[0].value : [];
+  const latestInvoices = data[1].status === "fulfilled" ? data[1].value : [];
+  const cardData =
+    data[2].status === "fulfilled"
+      ? data[2].value
+      : {
+          numberOfInvoices: 0,
+          numberOfCustomers: 0,
+          totalPaidInvoices: "0",
+          totalPendingInvoices: "0",
+        };
 
   const {
     numberOfInvoices,
