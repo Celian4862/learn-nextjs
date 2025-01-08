@@ -14,9 +14,12 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.4.17)
+      '@vercel/edge-config':
+        specifier: ^1.4.0
+        version: 1.4.0
       '@vercel/postgres':
         specifier: ^0.10.0
-        version: 0.10.0(utf-8-validate@6.0.5)
+        version: 0.10.0(utf-8-validate@6.0.3)
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -458,6 +461,18 @@ packages:
   '@typescript-eslint/visitor-keys@8.19.1':
     resolution: {integrity: sha512-fzmjU8CHK853V/avYZAvuVut3ZTfwN5YtMaoi+X9Y9MA9keaWNHC3zEQ9zvyX/7Hj+5JkNyK1l7TOR2hevHB6Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@vercel/edge-config-fs@0.1.0':
+    resolution: {integrity: sha512-NRIBwfcS0bUoUbRWlNGetqjvLSwgYH/BqKqDN7vK1g32p7dN96k0712COgaz6VFizAm9b0g6IG6hR6+hc0KCPg==}
+
+  '@vercel/edge-config@1.4.0':
+    resolution: {integrity: sha512-69Wg5gw9DzwnyUmnjToSeLRm1nm8mCPgN0kflX8EHRHyqvzH80wPem5A8rI2LXPb2Y9tJNoqN3vXPcQhS2Wh5g==}
+    engines: {node: '>=14.6'}
+    peerDependencies:
+      '@opentelemetry/api': ^1.7.0
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
 
   '@vercel/postgres@0.10.0':
     resolution: {integrity: sha512-fSD23DxGND40IzSkXjcFcxr53t3Tiym59Is0jSYIFpG4/0f0KO9SGtcp1sXiebvPaGe7N/tU05cH4yt2S6/IPg==}
@@ -1966,8 +1981,8 @@ packages:
     peerDependencies:
       react: '*'
 
-  utf-8-validate@6.0.5:
-    resolution: {integrity: sha512-EYZR+OpIXp9Y1eG1iueg8KRsY8TuT8VNgnanZ0uA3STqhHQTLwbl+WX76/9X5OY12yQubymBpaBSmMPkSTQcKA==}
+  utf-8-validate@6.0.3:
+    resolution: {integrity: sha512-uIuGf9TWQ/y+0Lp+KGZCMuJWc3N9BHA+l/UmHd/oUHwJJDeysyTRxNQVkbzsIWfGFbRe3OcgML/i0mvVRPOyDA==}
     engines: {node: '>=6.14.2'}
 
   util-deprecate@1.0.2:
@@ -2413,11 +2428,17 @@ snapshots:
       '@typescript-eslint/types': 8.19.1
       eslint-visitor-keys: 4.2.0
 
-  '@vercel/postgres@0.10.0(utf-8-validate@6.0.5)':
+  '@vercel/edge-config-fs@0.1.0': {}
+
+  '@vercel/edge-config@1.4.0':
+    dependencies:
+      '@vercel/edge-config-fs': 0.1.0
+
+  '@vercel/postgres@0.10.0(utf-8-validate@6.0.3)':
     dependencies:
       '@neondatabase/serverless': 0.9.5
       bufferutil: 4.0.8
-      ws: 8.18.0(bufferutil@4.0.8)(utf-8-validate@6.0.5)
+      ws: 8.18.0(bufferutil@4.0.8)(utf-8-validate@6.0.3)
     transitivePeerDependencies:
       - utf-8-validate
 
@@ -4184,7 +4205,7 @@ snapshots:
     dependencies:
       react: 19.0.0
 
-  utf-8-validate@6.0.5:
+  utf-8-validate@6.0.3:
     dependencies:
       node-gyp-build: 4.8.4
     optional: true
@@ -4262,10 +4283,10 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  ws@8.18.0(bufferutil@4.0.8)(utf-8-validate@6.0.5):
+  ws@8.18.0(bufferutil@4.0.8)(utf-8-validate@6.0.3):
     optionalDependencies:
       bufferutil: 4.0.8
-      utf-8-validate: 6.0.5
+      utf-8-validate: 6.0.3
 
   yallist@4.0.0: {}
 
