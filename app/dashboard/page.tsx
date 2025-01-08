@@ -23,8 +23,8 @@ export default async function Page() {
       : {
           numberOfInvoices: 0,
           numberOfCustomers: 0,
-          totalPaidInvoices: "0",
-          totalPendingInvoices: "0",
+          totalPaidInvoices: "$0",
+          totalPendingInvoices: "$0",
         };
 
   const {
