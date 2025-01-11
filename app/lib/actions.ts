@@ -101,7 +101,6 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
-    throw new Error("test");
     await signIn("credentials", formData);
   } catch (error) {
     if (error instanceof AuthError) {
